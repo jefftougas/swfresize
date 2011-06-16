@@ -20,6 +20,14 @@
 			{
 				listOfStuff.addItem("Another!");
 				ExternalInterface.call("resize", this.measuredHeight);
+				
+				trace("screen size: " + Capabilities.screenResolutionY);
+			}
+			
+			protected function makeSmall():void
+			{
+				listOfStuff.removeItemAt(listOfStuff.length -1);
+				ExternalInterface.call("resize", this.measuredHeight);
 			}
 		]]>
 	</fx:Script>
@@ -28,8 +36,10 @@
 			<s:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
 		</s:layout>
 		<s:Button click="addItem()" label="Add Another!"/>
+		<s:Button click="makeSmall()" label="bam"/>
 		<s:List dataProvider="{listOfStuff}"/>	
 		
 	</s:Group>
+	
 	
 </s:Application>
